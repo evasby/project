@@ -1,0 +1,51 @@
+body{
+	background: linear-gradient(45deg, #aaa, #fff);
+}
+textarea{
+  resize: none;
+}
+input{
+
+}
+strong, b{
+
+}
+i{
+
+}
+a{
+  &:focus{
+    outline: none;
+  }
+}
+pre{
+  white-space: normal;
+}
+h1, h2, h3, h4, h5, h6{
+  
+}
+::-webkit-input-placeholder{
+
+}
+::-moz-placeholder{
+
+}/* Firefox 19+ */
+:-moz-placeholder{
+
+}/* Firefox 18- */
+:-ms-input-placeholder{
+
+}
+input{
+  &:focus{
+    outline: none;
+  }
+}
+textarea{
+  &:focus{
+    outline: none;
+  }
+}
+.hide{
+  display: none;
+}
