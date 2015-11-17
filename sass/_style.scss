@@ -1,0 +1,77 @@
+@import "includes/settings";
+@import "includes/mix";
+@import "base/index";
+@import "blocks/index";
+
+@import "../app/bower_components/susy/sass/susy";
+
+$susy: (
+  columns: 10,
+  gutters: 1/4,
+  container: 60em,
+  math: fluid,
+  output: float,
+  //gutter-position: after,
+  gutter-position: inside,
+
+  debug: (
+  	image: show,
+  	color: rgba(#66f, .5),
+  	output: background,
+  	toggle: top right,
+  )
+
+);
+
+#main{
+	@include container();
+	margin: 0px;
+	@media screen and (min-width: 768px) {
+		margin: 0 auto;
+	}
+}
+#masthead {
+	@include span(10);
+	//@include clearfix();
+	background: rgba(green, .7);
+}
+#content {
+	@include span(10);
+	background: rgba(darkorange, .7);
+	@media screen and (min-width: 768px) {
+		@include span(7);
+	}
+}
+#sidebar {
+	@include span(10);
+	background: rgba(hotpink, .7);
+	@media screen and (min-width: 768px) {
+		@include span(3 last);
+	}
+}
+#ad {
+	@include span(10);
+	background: rgba(red, .7);
+	@media screen and (min-width: 768px) {
+		@include span(7);
+		@include push(1.5);
+	}
+}
+#pre-footer {
+	@include span(10);
+	background: rgba(brown, .7);
+}
+.pre-footer-column {
+	@include span(10);
+	
+	@media screen and (min-width: 768px) {
+		@include span(3.3);
+		&:last-child {
+			@include span(3.3 last);
+		}
+	}
+}
+#colophon {
+	@include span(10);
+	background: rgba(black, .7);
+}

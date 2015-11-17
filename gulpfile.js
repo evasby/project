@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     plumberNotifier = require('gulp-plumber-notifier'),
     plumber = require('gulp-plumber'),
+    wait = require('gulp-wait'),
     imagemin = require('gulp-imagemin');
 
 // server connect
@@ -40,11 +41,12 @@ function errorAlert(error){
 
 // css
 gulp.task('css', function () {
-  return gulp.src('scss/style.scss')
+  return gulp.src('./sass/all.scss')
     //.pipe(plumber())
     //.pipe(plumberNotifier())
     .pipe(plumber({errorHandler: errorAlert}))
-    .pipe(sass())
+    .pipe(wait(500))
+    .pipe(sass({ includePaths : ['_/sass/'] })) 
     .pipe(autoprefixer({
       browsers: ['last 2 versions', '> 1%', 'IE 9'],
       cascade: false
@@ -100,7 +102,7 @@ gulp.task('bower', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('scss/*.scss', ['css']);
+  gulp.watch('sass/*.scss', ['css']);
 	gulp.watch('bower.json', ['bower']);
   gulp.watch('app/index.html', ['html']);
 });
